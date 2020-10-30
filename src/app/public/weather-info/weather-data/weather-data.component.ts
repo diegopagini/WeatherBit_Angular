@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherbitService } from '../../services/weatherbit.service';
 
+
 @Component({
   selector: 'app-weather-data',
   templateUrl: './weather-data.component.html',
@@ -8,15 +9,23 @@ import { WeatherbitService } from '../../services/weatherbit.service';
 })
 export class WeatherDataComponent implements OnInit {
 
+
   currentTemp: number;
-  currenData;
+  currentData: any;
 
   constructor(public weatherbitService: WeatherbitService) { }
 
   ngOnInit(): void {
     this.weatherbitService.getCurrentWeather().subscribe(res => {
-      this.currenData = res;
+      this.currentData = res;
     });
+    
+    this.getCurrentTemp();
+  }
+
+  // tslint:disable-next-line: typedef
+  getCurrentTemp() {
+    return this.currentTemp = this.currentData.data.temp;
   }
 
 }
