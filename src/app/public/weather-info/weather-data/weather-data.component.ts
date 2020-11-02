@@ -24,6 +24,6 @@ export class WeatherDataComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getCurrentTemp() {
     console.log('currentTemp', this.currentTemp);
-    return this.currentTemp = this.currentData.data;
+    return this.currentTemp = this.currentData.data[0];
   }
 }
