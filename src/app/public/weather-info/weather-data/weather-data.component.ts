@@ -15,6 +15,7 @@ export class WeatherDataComponent implements OnInit {
   ngOnInit(): void {
     this.weatherbitService.getCurrentWeather().subscribe((res) => {
       this.currentData = res;
+      console.log('curenData', this.currentData);
     });
 
     this.getCurrentTemp();
@@ -22,6 +23,7 @@ export class WeatherDataComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getCurrentTemp() {
-    return (this.currentTemp = this.currentData.data.temp);
+    console.log('currentTemp', this.currentTemp);
+    return this.currentTemp = this.currentData.data;
   }
 }
