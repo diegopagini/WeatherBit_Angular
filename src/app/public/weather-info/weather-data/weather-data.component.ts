@@ -22,7 +22,6 @@ export class WeatherDataComponent implements OnInit {
       this.getCurrentTemp();
     });
 
-    
   }
 
   // tslint:disable-next-line: typedef
