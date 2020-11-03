@@ -10,6 +10,7 @@ import { WeatherDataComponent } from './public/weather-info/weather-data/weather
 import { ViewNewsComponent } from './public/weather-info/view-news/view-news.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
+Codigo postal input: {{ codigoPostal }}
 
 <div *ngIf="currentData">
+    <h1>{{ currentData.city_name }}</h1>
     <h2>{{ currentData.app_temp }}º</h2>
     <div class="viento">Viento: {{ currentData.wind_spd }} Km/h </div>
     <div class="humedad">Humedad: {{ currentData.rh }} % </div>

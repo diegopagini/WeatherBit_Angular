@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-city',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCityComponent implements OnInit {
 
+  cityName = new FormControl('');
+  
+  @Output() cityStringEmit = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  searchCity () {
+    this.cityStringEmit.emit(this.cityName.value);
   }
 
 }
