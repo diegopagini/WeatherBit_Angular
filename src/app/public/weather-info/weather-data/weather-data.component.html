@@ -1,3 +1,6 @@
-<h2>{{ currentData.data[0].app_temp }}º</h2>
-<div class="viento">Viento: {{ currentData.data[0].wind_spd }} Km/h </div>
-<div class="humedad">Humedad: {{ currentData.data[0].rh }} % </div>
+
+<div *ngIf="currentData">
+    <h2>{{ currentData.app_temp }}º</h2>
+    <div class="viento">Viento: {{ currentData.wind_spd }} Km/h </div>
+    <div class="humedad">Humedad: {{ currentData.rh }} % </div>
+</div>

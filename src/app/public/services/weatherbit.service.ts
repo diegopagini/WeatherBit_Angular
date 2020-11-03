@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { WeatherCurrentResponse } from '../interfaces/weather-current-response.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export class WeatherbitService {
   constructor(public http: HttpClient) {}
 
   // tslint:disable-next-line: typedef
-  getCurrentWeather() {
-    return this.http.get(`${this.baseLink}?city=Mar del Plata&key=${this.key}`);
+  getCurrentWeather(): Observable<WeatherCurrentResponse> {
+    return this.http.get<WeatherCurrentResponse>(`${this.baseLink}?city=Mar del Plata&key=${this.key}`);
   }
 }
