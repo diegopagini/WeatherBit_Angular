@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { WeatherCity, WeatherCurrentResponse } from '../../interfaces/weather-current-response.interface';
 import { WeatherbitService } from '../../services/weatherbit.service';
 
@@ -8,25 +8,36 @@ import { WeatherbitService } from '../../services/weatherbit.service';
   styleUrls: ['./weather-data.component.scss'],
 })
 export class WeatherDataComponent implements OnInit {
-  currentTemp: number;
+  @Input() newCity: string;
+  @Input() codigoPostal: string;
+  @Output() emitTemp = new EventEmitter();
 
   currentData: WeatherCity;
 
   constructor(public weatherbitService: WeatherbitService) {}
 
   ngOnInit(): void {
-    this.weatherbitService.getCurrentWeather().subscribe((res: WeatherCurrentResponse) => {
-      this.currentData = res.data[0];
-      console.log('curenData', this.currentData);
-
-      this.getCurrentTemp();
-    });
-
+    this.getCity();
   }
 
-  // tslint:disable-next-line: typedef
-  getCurrentTemp() {
-    console.log('currentTemp', this.currentTemp);
-    return this.currentTemp = this.currentData.temp;
+<<<<<<< HEAD
+=======
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.newCity.currentValue) {
+      this.getCity(changes.newCity.currentValue);
+    }
+>>>>>>> 170dcbdbd1dbb8b2825904aaa63e901e1492dac8
+  }
+
+  getCity(city = 'Mar del Plata') {
+    this.weatherbitService.getCurrentWeather(city).subscribe((res: WeatherCurrentResponse) => {
+      if (res.data === undefined) {
+        return true;
+      }
+
+      this.currentData = res.data[0];
+
+      this.emitTemp.emit(this.currentData.app_temp)
+    });
   }
 }

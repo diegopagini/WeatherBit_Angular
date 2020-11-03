@@ -13,7 +13,7 @@ export class WeatherbitService {
   constructor(public http: HttpClient) {}
 
   // tslint:disable-next-line: typedef
-  getCurrentWeather(): Observable<WeatherCurrentResponse> {
-    return this.http.get<WeatherCurrentResponse>(`${this.baseLink}?city=Mar del Plata&key=${this.key}`);
+  getCurrentWeather(city): Observable<WeatherCurrentResponse> {
+    return this.http.get<WeatherCurrentResponse>(`${this.baseLink}?city=${city}&key=${this.key}`);
   }
 }
