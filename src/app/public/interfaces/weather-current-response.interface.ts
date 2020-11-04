@@ -1,6 +1,6 @@
 export interface WeatherCurrentResponse {
     count: number;
-    data: Array<WeatherCity>
+    data: Array<WeatherCity>;
 }
 
 export interface WeatherCity {

@@ -26,11 +26,11 @@ export class ViewNewsComponent implements OnInit {
   setImage() {
     if (this.currentTemp) {
       if (this.currentTemp > 10 && this.currentTemp < 20) {
-        this.sourceImage = '/assets/img/templado.jpg'
+        this.sourceImage = '/assets/img/012-sun.png';
       } else if (this.currentTemp <= 10 ){
-        this.sourceImage = '/assets/img/frio.jpg'
+        this.sourceImage = '/assets/img/026-thermometer.png';
       } else {
-        this.sourceImage = '/assets/img/calor.jpg'
+        this.sourceImage = '/assets/img/001-thermometer.png';
       }
     }
   }

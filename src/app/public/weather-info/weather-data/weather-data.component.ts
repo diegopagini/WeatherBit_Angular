@@ -20,13 +20,10 @@ export class WeatherDataComponent implements OnInit {
     this.getCity();
   }
 
-<<<<<<< HEAD
-=======
   ngOnChanges(changes: SimpleChanges) {
     if (changes.newCity.currentValue) {
       this.getCity(changes.newCity.currentValue);
     }
->>>>>>> 170dcbdbd1dbb8b2825904aaa63e901e1492dac8
   }
 
   getCity(city = 'Mar del Plata') {
