@@ -1,5 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { WeatherCity, WeatherCurrentResponse } from '../../interfaces/weather-current-response.interface';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+import {
+  WeatherCity,
+  WeatherCurrentResponse,
+} from '../../interfaces/weather-current-response.interface';
 import { WeatherbitService } from '../../services/weatherbit.service';
 
 @Component({
@@ -27,14 +37,16 @@ export class WeatherDataComponent implements OnInit {
   }
 
   getCity(city = 'Mar del Plata') {
-    this.weatherbitService.getCurrentWeather(city).subscribe((res: WeatherCurrentResponse) => {
-      if (res.data === undefined) {
-        return true;
-      }
+    this.weatherbitService
+      .getCurrentWeather(city)
+      .subscribe((res: WeatherCurrentResponse) => {
+        if (res.data === undefined) {
+          return true;
+        }
 
-      this.currentData = res.data[0];
+        this.currentData = res.data[0];
 
-      this.emitTemp.emit(this.currentData.app_temp)
-    });
+        this.emitTemp.emit(this.currentData.app_temp);
+      });
   }
 }
